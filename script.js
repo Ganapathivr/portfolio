@@ -10,7 +10,7 @@ const phrases = [
   'UI/UX Enthusiast',
   'React Developer',
   'Problem Solver',
-  'Open Source Lover'
+  'Game Developer'
 ];
 let phraseIndex = 0, charIndex = 0, isDeleting = false;
 
@@ -50,7 +50,7 @@ window.addEventListener('scroll', () => {
 
 // ── MOBILE NAVIGATION ─────────────────────────────────────────
 const hamburger = document.getElementById('hamburger');
-const navLinks  = document.getElementById('nav-links');
+const navLinks = document.getElementById('nav-links');
 
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('open');
@@ -78,12 +78,12 @@ document.addEventListener('click', e => {
 // ── ACTIVE NAV LINK ───────────────────────────────────────────
 function updateActiveLink() {
   const sections = document.querySelectorAll('section[id]');
-  const scrollY  = window.scrollY + 120;
+  const scrollY = window.scrollY + 120;
   sections.forEach(section => {
-    const top    = section.offsetTop;
+    const top = section.offsetTop;
     const height = section.offsetHeight;
-    const id     = section.getAttribute('id');
-    const link   = document.querySelector(`.nav-link[href="#${id}"]`);
+    const id = section.getAttribute('id');
+    const link = document.querySelector(`.nav-link[href="#${id}"]`);
     if (link) link.classList.toggle('active', scrollY >= top && scrollY < top + height);
   });
 }
@@ -93,7 +93,7 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
       const el = entry.target;
-      const delay = el.closest('.skills-grid, .projects-grid') ? 
+      const delay = el.closest('.skills-grid, .projects-grid') ?
         Array.from(el.parentElement.children).indexOf(el) * 100 : 0;
       setTimeout(() => el.classList.add('visible'), delay);
       observer.unobserve(el);
@@ -120,15 +120,15 @@ function animateSkillBars() {
 }
 
 // ── CONTACT FORM ──────────────────────────────────────────────
-const form       = document.getElementById('contact-form');
-const submitBtn  = document.getElementById('submit-btn');
+const form = document.getElementById('contact-form');
+const submitBtn = document.getElementById('submit-btn');
 const successMsg = document.getElementById('form-success');
 
 if (form) {
   form.addEventListener('submit', e => {
     e.preventDefault();
-    const name    = form.name.value.trim();
-    const email   = form.email.value.trim();
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
     const subject = form.subject.value.trim();
     const message = form.message.value.trim();
 
